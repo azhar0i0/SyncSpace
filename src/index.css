@@ -6,86 +6,95 @@
 
 @layer base {
   :root {
-    --background: 240 20% 99%;
-    --foreground: 240 20% 6%;
+    --background: 0 0% 99%;
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 20% 6%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 20% 6%;
+    --popover-foreground: 220 20% 10%;
 
-    --primary: 245 58% 51%;
+    --primary: 235 72% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 20% 96%;
-    --secondary-foreground: 240 20% 20%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 20%;
 
-    --muted: 240 15% 95%;
-    --muted-foreground: 240 10% 46%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 270 60% 58%;
+    --accent: 258 60% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 12% 91%;
-    --input: 240 12% 91%;
-    --ring: 245 58% 51%;
+    --success: 152 60% 42%;
+    --success-foreground: 0 0% 100%;
 
-    --radius: 0.75rem;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
 
-    --gradient-start: 245 58% 51%;
-    --gradient-end: 270 60% 58%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 235 72% 58%;
 
-    --sidebar-background: 240 20% 98%;
-    --sidebar-foreground: 240 10% 30%;
-    --sidebar-primary: 245 58% 51%;
+    --radius: 0.625rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 10% 30%;
+    --sidebar-primary: 235 72% 58%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 245 40% 95%;
-    --sidebar-accent-foreground: 245 58% 40%;
-    --sidebar-border: 240 12% 91%;
-    --sidebar-ring: 245 58% 51%;
+    --sidebar-accent: 235 40% 96%;
+    --sidebar-accent-foreground: 235 72% 45%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 235 72% 58%;
   }
 
   .dark {
-    --background: 240 15% 6%;
-    --foreground: 240 10% 95%;
+    --background: 224 20% 5%;
+    --foreground: 210 20% 95%;
 
-    --card: 240 15% 10%;
-    --card-foreground: 240 10% 95%;
+    --card: 224 20% 8%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 240 15% 10%;
-    --popover-foreground: 240 10% 95%;
+    --popover: 224 20% 8%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 250 60% 65%;
+    --primary: 240 60% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 15% 15%;
-    --secondary-foreground: 240 10% 90%;
+    --secondary: 224 15% 14%;
+    --secondary-foreground: 210 10% 90%;
 
-    --muted: 240 15% 15%;
-    --muted-foreground: 240 10% 60%;
+    --muted: 224 15% 14%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 270 55% 60%;
+    --accent: 258 50% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 12% 18%;
-    --input: 240 12% 18%;
-    --ring: 250 60% 65%;
+    --success: 152 50% 38%;
+    --success-foreground: 0 0% 100%;
 
-    --sidebar-background: 240 15% 8%;
-    --sidebar-foreground: 240 10% 80%;
-    --sidebar-primary: 250 60% 65%;
+    --warning: 38 80% 45%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 224 12% 16%;
+    --input: 224 12% 16%;
+    --ring: 240 60% 65%;
+
+    --sidebar-background: 224 20% 7%;
+    --sidebar-foreground: 220 10% 75%;
+    --sidebar-primary: 240 60% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 15% 14%;
-    --sidebar-accent-foreground: 240 10% 90%;
-    --sidebar-border: 240 12% 18%;
-    --sidebar-ring: 250 60% 65%;
+    --sidebar-accent: 224 15% 12%;
+    --sidebar-accent-foreground: 210 10% 90%;
+    --sidebar-border: 224 12% 16%;
+    --sidebar-ring: 240 60% 65%;
   }
 }
 
@@ -95,19 +104,26 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: hsl(235 72% 58% / 0.15);
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+    @apply bg-card/70 backdrop-blur-xl border border-border/40;
   }
   .glass-strong {
-    @apply bg-card/80 backdrop-blur-2xl border border-border/60;
+    @apply bg-card/85 backdrop-blur-2xl border border-border/50;
   }
   .gradient-primary {
     background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
@@ -118,14 +134,44 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .gradient-border {
-    position: relative;
-    background-clip: padding-box;
+  .gradient-subtle {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--accent) / 0.05));
   }
   .shadow-glow {
-    box-shadow: 0 0 40px -12px hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 40px -12px hsl(var(--primary) / 0.25), 0 4px 12px -2px hsl(var(--primary) / 0.08);
   }
   .shadow-glow-sm {
-    box-shadow: 0 0 20px -8px hsl(var(--primary) / 0.2);
+    box-shadow: 0 0 20px -8px hsl(var(--primary) / 0.15), 0 2px 8px -2px hsl(var(--primary) / 0.06);
   }
+  .shadow-elevated {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 6px 24px -4px rgb(0 0 0 / 0.06);
+  }
+  .shadow-elevated-lg {
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 0.03), 0 12px 40px -8px rgb(0 0 0 / 0.08);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.35);
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid hsl(var(--ring) / 0.5);
+  outline-offset: 2px;
 }
